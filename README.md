@@ -1,7 +1,7 @@
 # 🚀 Live Options Trading Dashboard  
 **Excel + Python + Upstox API | Intraday | Option Buying (Scalping)**
 
----
+![Live Options Trading Dashboard](Images/Dashboard.png)
 
 ## 📌 Overview
 
@@ -10,9 +10,7 @@ This project is a **live intraday options trading dashboard** that enables **dir
 The system is designed for **high-speed option buying and scalping**, with a strong focus on **capital protection, brokerage transparency, and execution discipline**.  
 All critical trade, margin, and P&L data are displayed **in real time**, exactly reflecting the broker account.
 
-<p align="center">
-  <img src="Images/Dashboard.png" alt="Live Options Trading Dashboard" width="1000">
-</p>
+
 
 ---
 
