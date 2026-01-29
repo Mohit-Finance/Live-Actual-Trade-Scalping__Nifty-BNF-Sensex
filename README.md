@@ -1,15 +1,14 @@
 # 🚀 Live Options Trading Dashboard  
-**Excel + Python + Upstox API (Intraday | Option Buying | Scalping)**
+**Excel + Python + Upstox API | Intraday | Option Buying (Scalping)**
 
 ---
 
-## 📌 Project Overview
+## 📌 Overview
 
-This project is a **Live Options Trading Dashboard** that allows you to **place real trades directly into your Upstox broker account from Excel**, using a Python backend integrated with the **Upstox API**.
+This project is a **live intraday options trading dashboard** that enables **direct order placement into an Upstox broker account from Excel**, powered by a Python backend using the Upstox API.
 
-The dashboard provides **real-time account data, live P&L, margin usage, brokerage calculation, and automated trade controls**, enabling fast **option-buying scalping trades** with keyboard-based execution.
-
-📷 **Refer to the dashboard image below for layout and feature understanding:**
+The system is designed for **high-speed option buying and scalping**, with a strong focus on **capital protection, brokerage transparency, and execution discipline**.  
+All critical trade, margin, and P&L data are displayed **in real time**, exactly reflecting the broker account.
 
 <p align="center">
   <img src="Images/Dashboard.png" alt="Live Options Trading Dashboard" width="1000">
@@ -17,159 +16,169 @@ The dashboard provides **real-time account data, live P&L, margin usage, brokera
 
 ---
 
-## 🎯 Core Objective
+## 🎯 Purpose & Design Philosophy
 
-- Trade **live options** directly from Excel
-- See **actual broker-side P&L instantly**
-- Know **true net profit (after brokerage)** immediately
-- Avoid over-leveraging by **blocking trades beyond available funds**
-- Enable **fast scalping execution** using keyboard shortcuts
+- Execute **real trades directly from Excel**
+- See **true broker-side P&L instantly**
+- Know **actual take-home profit (after all charges)** immediately
+- Prevent over-leveraging through **fund-aware lot restrictions**
+- Enable **fast keyboard-driven execution** suitable for scalping
+
+This is a **decision-support + execution system**, not a black-box algo.
 
 ---
 
 ## 🔗 Broker Integration
 
 - **Broker:** Upstox  
-- **Mode:** Live Trading  
-- **Integration:** Python + Upstox API  
-- **Order Execution:** Real orders placed in broker account  
-- **Latency:** Subject to API response time (handled in logic)
+- **Trading Mode:** Live (Real Orders)  
+- **Backend:** Python (Upstox API)  
+- **Execution:** Subject to API latency (handled logically)
 
 ---
 
-## 📊 Live Account & Trade Metrics (Real-Time)
+## 📊 Real-Time Account & Trade Information
 
-The dashboard continuously fetches and displays:
+The dashboard continuously syncs with the broker account to show:
 
-### 💰 Funds & Margin
-- Available Funds
-- Used Margin
-- Maximum Lots allowed (based on funds)
-- Auto-block if entered lots exceed permissible limit
+### Funds & Margin
+- Available funds
+- Used margin
+- Maximum tradable lots (based on live funds)
+- Automatic blocking of orders exceeding allowable limits
 
-### 📈 P&L & Accuracy
+### P&L & Performance
 - Live Upstox P&L
-- Total Brokerage (all trades combined)
-- Net Profit (Take-home profit after charges)
-- Profit Trades vs Loss Trades
-- Trade Accuracy %
+- Total brokerage (all trades combined)
+- Net profit / loss (actual take-home)
+- Count of profitable vs losing trades
+- Trade accuracy %
 
-➡️ **Key Advantage:**  
-You get **final net profit instantly after exit**, without waiting for the contract note.
-
----
-
-## 🧠 Strategy Scope (Strictly Controlled)
-
-⚠️ **Only the following positions are allowed (by design):**
-
-- ✅ Naked Call Buy (Z + UP)
-- ✅ Naked Put Buy (X + UP)
-- ✅ Buy Straddle (B + UP)
-
-🚫 Selling strategies are intentionally blocked  
-🚫 Complex multi-leg selling is not allowed  
-
-📌 This dashboard is **purely for option buying & scalping**.
+> You do **not** need to wait for the contract note to know final profitability.
 
 ---
 
-## ⌨️ Trade Execution Controls
+## 🧠 Strategy Scope (Strictly Enforced)
 
-- Entry & Exit are triggered via **keyboard keys**
+This dashboard is **exclusively for option buying**.
+
+### Allowed Positions
+- Naked Call Buy
+- Naked Put Buy
+- Buy Straddle
+
+### Not Allowed
+- Any option selling
+- Credit spreads
+- Multi-leg selling or complex strategies
+
+This restriction is intentional to keep **risk defined and execution fast**.
+
+---
+
+## ⌨️ Trade Execution & Order Control
+
+- Trade entry and exit via **keyboard shortcuts**
 - No mouse dependency during live market
-- Faster reaction during volatile moves
+- Faster response during volatile price movement
 
-Supported Order Types:
+Supported order styles:
 - Buy Breakout Order (BBO)
 - Buy Limit Order (BLO)
 
 ---
 
-## 🎯 Target & Stop Loss Logic
+## 🎯 Target & Stop Loss Rules
 
-- Target and Stop Loss must be set **before entry**
-- Once trade is entered:
-  - ❌ Target cannot be changed
-  - ❌ Stop Loss cannot be changed
-- Exit is **automatic** on:
+- Target and Stop Loss must be defined **before entering a trade**
+- Once the trade is live:
+  - Target cannot be modified
+  - Stop Loss cannot be modified
+- Exit occurs automatically on:
   - Target hit
   - Stop Loss hit
-  - Manual exit key
+  - Manual exit command
 
-📌 Exit follows **real broker execution**, respecting API latency.
+This enforces **pre-trade discipline** and avoids emotional interference.
 
 ---
 
 ## 🧮 Brokerage & Margin Transparency
 
-The dashboard includes:
+The dashboard provides:
 - Per-lot brokerage calculation
-- Brokerage for total lots entered
-- Real-time brokerage deduction from P&L
-- Margin calculator for:
-  - Buying
-  - (Reference) Selling
+- Brokerage for total quantity entered
+- Live deduction of brokerage from P&L
+- Margin reference calculations
 
-➡️ You always know:
-> **What you earn is what you take home**
+What you see as **Net P&L is the actual amount you take home**.
 
 ---
 
-## 📍 Trade Intelligence & Context Display
+## 📍 Trade Context & Market Reference
 
-Displayed live on the dashboard:
-- Index Spot Price (NIFTY)
-- Expiry Date
+Displayed for every trade:
+- Index spot price
+- Expiry date
 - DTE (Days to Expiry)
-- Manual Strike Entry
-- Synthetic ATM Strike Display
-- Maximum Lot per Order (exchange constraint)
-- RSI / EMA / VWAP logical references (for decision support)
+- Manual strike input
+- Synthetic ATM strike
+- Exchange-imposed max lot per order
 
 ---
 
-## 👁 Visual Trade Representation
+## 👁 Visual Risk Representation
 
-- Actual live trade shown with **real P&L**
-- A **hypothetical max-lot trade (e.g., 27 lots)** is shown below:
+- Actual live trade shown with **real broker P&L**
+- A **hypothetical maximum-lot position** (e.g., 27 lots) is displayed:
   - For visualization only
-  - Helps understand scaling impact
-  - Does NOT place real orders
+  - Helps assess scaling impact
+  - Does **not** place real orders
 
-📌 This makes risk and reward **visually obvious** before scaling up.
-
----
-
-## 🔄 Auto Features (Optional Logic-Based)
-
-The system supports auto-logic modules such as:
-- Auto Entry (based on simple indicators)
-- Auto Exit (target / SL driven)
-- Spike-based entry conditions
-- EMA / VWAP contextual confirmations
-
-⚠️ These are intentionally kept **simple and transparent**, not black-box.
+This makes risk exposure immediately visible.
 
 ---
 
-## 🛡 Safety Mechanisms
+## 🛡 Risk & Safety Controls
 
-- Blocks trade if:
-  - Lots entered > allowed by funds
-  - Invalid strike or expiry
-- Prevents mid-trade modification of SL/Target
-- One-direction bias enforcement
+- Order blocked if lots exceed fund-based limits
+- Invalid strike or expiry is rejected
+- No mid-trade SL/Target modification
+- Single-direction position enforcement
+
+---
+
+## 📄 End-of-Day Trade Log & Report
+
+At the end of the session, a **final consolidated trade report** is generated summarizing **all trades taken during the day**.
+
+### Daily Trade Log Contains:
+- Trade Date & Day
+- Entry Time & Exit Time
+- Trade Duration
+- Exit Method (Target / SL / Manual)
+- Index Traded
+- Expiry Used
+- DTE (Days to Expiry)
+- Strategy Name
+- Lot × Quantity
+- Lowest & Highest points during the trade
+- Gross P&L
+- Brokerage
+- Net P&L
+- Margin Used
+- Gain % (with respect to margin)
+
+This report provides a **complete, auditable trading summary** for review and performance analysis.
 
 ---
 
 ## 📈 Ideal Use Case
 
 - Intraday option scalping
-- High-speed discretionary trading
-- Strategy execution discipline
-- Capital & risk awareness
-- Traders who want **Excel-level control + real execution**
+- Discretionary trading with execution discipline
+- Traders who want **Excel-level control with real broker execution**
+- Immediate clarity on risk, margin, and net profitability
 
 ---
 
@@ -178,14 +187,15 @@ The system supports auto-logic modules such as:
 This is a **live trading system**.  
 Losses are possible.  
 Use at your own risk.  
-This project is intended for **educational and personal trading use only**.
+This project is intended for **personal and educational use only**.
 
 ---
 
 ## 👤 Author
+
 **Mohit Sharma**  
-Live Trading Automation | Options Scalping | Excel + Python Systems
+Options Trading Automation | Excel + Python | Live Execution Systems
 
 ---
 
-🚀 *Trade fast. Trade informed. Trade disciplined.*
+*Fast execution. Clear risk. No ambiguity.*
