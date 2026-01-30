@@ -108,7 +108,8 @@ if not access:
         options.headless = True
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
-        driver = uc.Chrome(options=options)
+        driver = uc.Chrome(version_main=144, options=options)
+        # driver = uc.Chrome(options=options)
 
         # driver = uc.Chrome() # Use this line instead to run Chrome in normal (visible) mode, (In that case, comment out the 5 lines above that set headless options)
 
